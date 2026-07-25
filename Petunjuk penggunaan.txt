@@ -1,0 +1,30 @@
+======================================================
+PETUNJUK PENGGUNAAN WEBSITE FIBIBOX
+UAS CLOUD COMPUTING
+======================================================
+Nama  : Zidan Rifqi Setyawan
+NIM   : 2415354085
+Tema  : Katalog Produk & Profil Usaha (Fibibox)
+
+1. TAUTAN (URL) PROYEK
+------------------------------------------------------
+- URL Website Publik (Live) : https://zidanrs.github.io/FibiBox.V1/
+- URL Repository GitHub     : https://github.com/ZidanRS/FibiBox.V1
+
+2. PANDUAN FITUR WEBSITE
+------------------------------------------------------
+a. Navigasi Halaman (Sidebar)
+   - Terdapat menu navigasi interaktif di sebelah kiri untuk melihat halaman konten (TENTANG KAMI, KATALgit add .OG, KONTAK, LOKASI).
+   - Menu halaman yang sedang dibuka akan ditandai dengan teks tebal dan garis bawah.
+
+b. Fitur Multi-Bahasa (Pembaruan Setelah Deployment)
+   - Di bagian paling bawah sidebar, terdapat fitur dropdown "Language Switcher".
+   - Pilih "INDONESIA" untuk menerjemahkan keseluruhan antarmuka ke Bahasa Indonesia.
+   - Pilih "ENGLISH" untuk mengembalikan bahasa ke Bahasa Inggris.
+   - Pilihan bahasa ini akan otomatis tersimpan di dalam browser meskipun pengguna berpindah halaman.
+
+c. Peta Lokasi Terintegrasi
+   - Buka menu LOKASI untuk melihat sematan Google Maps interaktif. 
+   - Peta dapat digeser dan diperbesar. Terdapat juga tautan langsung untuk membuka rute di aplikasi Google Maps.
+
+======================================================
