@@ -1,181 +1,32 @@
 /* ==========================================================================
-   PENGATURAN VARIABEL WARNA & FONT
+   LANGUAGE SWITCHER STYLING
    ========================================================================== */
-:root {
-    --bg-block1: #40513B;
-    --bg-block2: #628141;
-    --text-light: #F8F9FA;
-    --font-mono: 'Anonymous Pro', monospace;
+.language-selector {
+    margin-top: auto;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(248, 249, 250, 0.2);
 }
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-body {
+.language-selector select {
+    background-color: var(--bg-block2);
+    color: var(--text-light);
     font-family: var(--font-mono);
-    line-height: 1.5;
-    font-size: 16px;
-    color: var(--text-light);
-}
-
-/* Mengatur agar teks tertentu saja yang kapital */
-h1,
-h2,
-h3,
-.site-nav a,
-.gallery-item figcaption,
-strong {
-    text-transform: uppercase;
-}
-
-/* Paragraf dan deskripsi dibiarkan normal agar mudah dibaca */
-.content-page p,
-.site-description {
-    text-transform: none;
-}
-
-/* ==========================================================================
-   LAYOUT UTAMA
-   ========================================================================== */
-.layout-container {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
-@media (min-width: 800px) {
-    .layout-container {
-        flex-direction: row;
-    }
-}
-
-/* ==========================================================================
-   BLOCK 1: SIDEBAR KIRI (#40513B)
-   ========================================================================== */
-.sidebar-wrapper {
-    background-color: var(--bg-block1);
-    flex: 0 0 320px;
-    padding: 4rem 2.5rem;
-}
-
-.sidebar-sticky {
-    display: flex;
-    flex-direction: column;
-    gap: 2.5rem;
-    position: sticky;
-    top: 4rem;
-}
-
-.site-logo {
-    width: 100px;
-    height: auto;
-    display: block;
-    align-self: center;
-}
-
-.site-description {
-    font-size: 1rem;
-    font-weight: 400;
-    max-width: 250px;
-}
-
-.site-nav ul {
-    list-style: none;
-    margin-top: 3rem;
-}
-
-.site-nav a {
-    color: var(--text-light);
-    text-decoration: none;
-    display: block;
-    margin-bottom: 1.5rem;
-}
-
-.site-nav a:hover {
-    text-decoration: underline;
-}
-
-/* Penanda menu aktif / halaman yang sedang dibuka */
-.site-nav a.active {
-    font-weight: 700;
-    text-decoration: underline;
-    text-underline-offset: 4px;
-}
-
-/* ==========================================================================
-   BLOCK 2: GALERI KANAN (#628141 + Pola Garis Kontur)
-   ========================================================================== */
-.gallery-grid {
-    background-color: var(--bg-block2);
-    /* Pola garis kontur tipis yang elegan */
-    background-image: linear-gradient(0deg, rgba(255, 255, 255, 0.07) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.07) 1px, transparent 1px);
-    background-size: 32px 32px;
-
-    flex: 1;
-    padding: 4rem 3rem;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 4rem 2.5rem;
-    align-items: start;
-}
-
-.gallery-item {
-    cursor: pointer;
-}
-
-/* Menyeragamkan ukuran kotak dan posisi gambar */
-.gallery-item img {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--text-light);
+    border-radius: 4px;
     width: 100%;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
-    display: block;
-    margin-bottom: 1rem;
-    transition: transform 0.3s ease;
+    cursor: pointer;
+    text-transform: uppercase;
+    outline: none;
+    transition: background 0.3s ease;
 }
 
-.gallery-item:hover img {
-    transform: scale(1.05);
+.language-selector select:hover {
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
-.gallery-item figcaption {
-    font-size: 0.875rem;
-    line-height: 1.4;
-    max-width: 90%;
-}
-
-/* ==========================================================================
-   HALAMAN KONTEN (ABOUT, CONTACT, LOCATION + Pola Garis Kontur)
-   ========================================================================== */
-.content-page {
-    background-color: var(--bg-block2);
-    /* Menyamakan pola garis kontur agar konsisten di semua halaman */
-    background-image: linear-gradient(0deg, rgba(255, 255, 255, 0.07) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.07) 1px, transparent 1px);
-    background-size: 32px 32px;
-
-    flex: 1;
-    padding: 5rem 3rem 4rem 3rem;
-}
-
-.content-page h2 {
-    font-size: 2rem;
-    margin-bottom: 2rem;
-    border-bottom: 2px solid var(--text-light);
-    padding-bottom: 0.5rem;
-    display: inline-block;
-}
-
-.content-page p {
-    font-size: 1rem;
-    margin-bottom: 1.5rem;
-    max-width: 700px;
-    line-height: 1.8;
-}
-
-.content-page a {
+.language-selector option {
+    background-color: var(--bg-block1);
     color: var(--text-light);
 }

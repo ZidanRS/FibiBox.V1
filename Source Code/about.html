@@ -16,33 +16,82 @@
         <aside class="sidebar-wrapper">
             <div class="sidebar-sticky">
                 <img src="img/logo.png" alt="Logo Fibibox" class="site-logo">
-                <p class="site-description">
+                <p class="site-description" data-translate="desc">
                     A SERIES OF INTERCONNECTED CUSTOM PACKAGING DESIGNS, CURATED FOR YOUR BRAND.
                 </p>
                 <nav class="site-nav">
                     <ul>
-                        <li><a href="about.html" class="active">ABOUT</a></li>
-                        <li><a href="index.html">CATALOG</a></li>
-                        <li><a href="contact.html">CONTACT</a></li>
-                        <li><a href="location.html">LOCATION</a></li>
+                        <li><a href="about.html" class="active" data-translate="menu-about">ABOUT</a></li>
+                        <li><a href="index.html" data-translate="menu-catalog">CATALOG</a></li>
+                        <li><a href="contact.html" data-translate="menu-contact">CONTACT</a></li>
+                        <li><a href="location.html" data-translate="menu-location">LOCATION</a></li>
                     </ul>
                 </nav>
+
+                <!-- DROPDOWN PILIHAN BAHASA -->
+                <div class="language-selector">
+                    <select id="lang-switch" onchange="changeLanguage(this.value)">
+                        <option value="en">ENGLISH</option>
+                        <option value="id">INDONESIA</option>
+                    </select>
+                </div>
             </div>
         </aside>
 
         <!-- KONTEN KANAN -->
         <main class="content-page">
-            <h2>ABOUT FIBIBOX</h2>
-            <p>
+            <h2 data-translate="about-title">ABOUT FIBIBOX</h2>
+            <p data-translate="about-text-1">
                 Fibibox is a premium custom hardbox packaging specialist. We craft high-quality, elegant, and sturdy
                 packaging solutions tailored specifically for your brand's unique identity.
             </p>
-            <p>
+            <p data-translate="about-text-2">
                 From rigid boxes to custom drawer packaging, we ensure every detail reflects excellence.
             </p>
         </main>
 
     </div>
+
+    <script>
+        const translations = {
+            en: {
+                "desc": "A SERIES OF INTERCONNECTED CUSTOM PACKAGING DESIGNS, CURATED FOR YOUR BRAND.",
+                "menu-about": "ABOUT",
+                "menu-catalog": "CATALOG",
+                "menu-contact": "CONTACT",
+                "menu-location": "LOCATION",
+                "about-title": "ABOUT FIBIBOX",
+                "about-text-1": "Fibibox is a premium custom hardbox packaging specialist. We craft high-quality, elegant, and sturdy packaging solutions tailored specifically for your brand's unique identity.",
+                "about-text-2": "From rigid boxes to custom drawer packaging, we ensure every detail reflects excellence."
+            },
+            id: {
+                "desc": "SERI DESAIN KEMASAN KUSTOM YANG SALING TERHUBUNG, DIKURASI KHUSUS UNTUK BRAND ANDA.",
+                "menu-about": "TENTANG KAMI",
+                "menu-catalog": "KATALOG",
+                "menu-contact": "KONTAK",
+                "menu-location": "LOKASI",
+                "about-title": "TENTANG FIBIBOX",
+                "about-text-1": "Fibibox adalah spesialis kemasan hardbox kustom premium. Kami membuat solusi kemasan berkualitas tinggi, elegan, dan kokoh yang dirancang khusus untuk mencerminkan identitas unik brand Anda.",
+                "about-text-2": "Mulai dari kotak kaku (rigid box) hingga kemasan laci kustom, kami memastikan setiap detail memancarkan keunggulan."
+            }
+        };
+
+        function changeLanguage(lang) {
+            localStorage.setItem('selected-lang', lang);
+            document.querySelectorAll('[data-translate]').forEach(el => {
+                const key = el.getAttribute('data-translate');
+                if (translations[lang][key]) {
+                    el.innerText = translations[lang][key];
+                }
+            });
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('selected-lang') || 'en';
+            document.getElementById('lang-switch').value = savedLang;
+            changeLanguage(savedLang);
+        });
+    </script>
 </body>
 
 </html>

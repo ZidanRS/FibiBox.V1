@@ -16,39 +16,90 @@
         <aside class="sidebar-wrapper">
             <div class="sidebar-sticky">
                 <img src="img/logo.png" alt="Logo Fibibox" class="site-logo">
-                <p class="site-description">
+                <p class="site-description" data-translate="desc">
                     A SERIES OF INTERCONNECTED CUSTOM PACKAGING DESIGNS, CURATED FOR YOUR BRAND.
                 </p>
                 <nav class="site-nav">
                     <ul>
-                        <li><a href="about.html">ABOUT</a></li>
-                        <li><a href="index.html">CATALOG</a></li>
-                        <li><a href="contact.html" class="active">CONTACT</a></li>
-                        <li><a href="location.html">LOCATION</a></li>
+                        <li><a href="about.html" data-translate="menu-about">ABOUT</a></li>
+                        <li><a href="index.html" data-translate="menu-catalog">CATALOG</a></li>
+                        <li><a href="contact.html" class="active" data-translate="menu-contact">CONTACT</a></li>
+                        <li><a href="location.html" data-translate="menu-location">LOCATION</a></li>
                     </ul>
                 </nav>
+
+                <!-- DROPDOWN PILIHAN BAHASA -->
+                <div class="language-selector">
+                    <select id="lang-switch" onchange="changeLanguage(this.value)">
+                        <option value="en">ENGLISH</option>
+                        <option value="id">INDONESIA</option>
+                    </select>
+                </div>
             </div>
         </aside>
 
         <!-- KONTEN KANAN -->
         <main class="content-page">
-            <h2>CONTACT US</h2>
-            <p>
+            <h2 data-translate="contact-title">CONTACT US</h2>
+            <p data-translate="contact-desc">
                 Ready to elevate your brand's packaging? Get in touch with us through the channels below.
             </p>
             <br>
             <p>
-                <strong>WHATSAPP:</strong><br>
+                <strong data-translate="contact-wa">WHATSAPP:</strong><br>
                 <a href="https://wa.me/6282144012200" target="_blank" rel="noopener noreferrer">+62 821-4401-2200</a>
             </p>
             <p>
-                <strong>INSTAGRAM:</strong><br>
+                <strong data-translate="contact-ig">INSTAGRAM:</strong><br>
                 <a href="https://www.instagram.com/fibibox?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
                     target="_blank" rel="noopener noreferrer">@FIBIBOX</a>
             </p>
         </main>
 
     </div>
+
+    <script>
+        const translations = {
+            en: {
+                "desc": "A SERIES OF INTERCONNECTED CUSTOM PACKAGING DESIGNS, CURATED FOR YOUR BRAND.",
+                "menu-about": "ABOUT",
+                "menu-catalog": "CATALOG",
+                "menu-contact": "CONTACT",
+                "menu-location": "LOCATION",
+                "contact-title": "CONTACT US",
+                "contact-desc": "Ready to elevate your brand's packaging? Get in touch with us through the channels below.",
+                "contact-wa": "WHATSAPP:",
+                "contact-ig": "INSTAGRAM:"
+            },
+            id: {
+                "desc": "SERI DESAIN KEMASAN KUSTOM YANG SALING TERHUBUNG, DIKURASI KHUSUS UNTUK BRAND ANDA.",
+                "menu-about": "TENTANG KAMI",
+                "menu-catalog": "KATALOG",
+                "menu-contact": "KONTAK",
+                "menu-location": "LOKASI",
+                "contact-title": "HUBUNGI KAMI",
+                "contact-desc": "Siap meningkatkan kualitas kemasan brand Anda? Hubungi kami melalui saluran di bawah ini.",
+                "contact-wa": "WHATSAPP:",
+                "contact-ig": "INSTAGRAM:"
+            }
+        };
+
+        function changeLanguage(lang) {
+            localStorage.setItem('selected-lang', lang);
+            document.querySelectorAll('[data-translate]').forEach(el => {
+                const key = el.getAttribute('data-translate');
+                if (translations[lang][key]) {
+                    el.innerText = translations[lang][key];
+                }
+            });
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('selected-lang') || 'en';
+            document.getElementById('lang-switch').value = savedLang;
+            changeLanguage(savedLang);
+        });
+    </script>
 </body>
 
 </html>

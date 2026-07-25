@@ -16,29 +16,37 @@
         <aside class="sidebar-wrapper">
             <div class="sidebar-sticky">
                 <img src="img/logo.png" alt="Logo Fibibox" class="site-logo">
-                <p class="site-description">
+                <p class="site-description" data-translate="desc">
                     A SERIES OF INTERCONNECTED CUSTOM PACKAGING DESIGNS, CURATED FOR YOUR BRAND.
                 </p>
                 <nav class="site-nav">
                     <ul>
-                        <li><a href="about.html">ABOUT</a></li>
-                        <li><a href="index.html">CATALOG</a></li>
-                        <li><a href="contact.html">CONTACT</a></li>
-                        <li><a href="location.html" class="active">LOCATION</a></li>
+                        <li><a href="about.html" data-translate="menu-about">ABOUT</a></li>
+                        <li><a href="index.html" data-translate="menu-catalog">CATALOG</a></li>
+                        <li><a href="contact.html" data-translate="menu-contact">CONTACT</a></li>
+                        <li><a href="location.html" class="active" data-translate="menu-location">LOCATION</a></li>
                     </ul>
                 </nav>
+
+                <!-- DROPDOWN PILIHAN BAHASA -->
+                <div class="language-selector">
+                    <select id="lang-switch" onchange="changeLanguage(this.value)">
+                        <option value="en">ENGLISH</option>
+                        <option value="id">INDONESIA</option>
+                    </select>
+                </div>
             </div>
         </aside>
 
         <!-- KONTEN KANAN -->
         <main class="content-page">
-            <h2>OUR LOCATION</h2>
-            <p>
+            <h2 data-translate="loc-title">OUR LOCATION</h2>
+            <p data-translate="loc-desc">
                 Want to see our premium packaging samples in person? Visit our workshop at the address below.
             </p>
             <br>
             <p>
-                <strong>ADDRESS:</strong><br>
+                <strong data-translate="loc-address-label">ADDRESS:</strong><br>
                 JALAN IMAM BONJOL NO 66<br>
                 Denpasar, Bali, Indonesia<br>
                 80119
@@ -46,18 +54,17 @@
 
             <br>
             <p>
-                <strong>OPERATIONAL HOURS:</strong><br>
-                Monday - Friday: 09.00 - 17.00<br>
-                Saturday: 09.00 - 14.00<br>
-                Sunday: Closed
+                <strong data-translate="loc-hours-label">OPERATIONAL HOURS:</strong><br>
+                <span data-translate="loc-hours-1">Monday - Friday: 09.00 - 17.00</span><br>
+                <span data-translate="loc-hours-2">Saturday: 09.00 - 14.00</span><br>
+                <span data-translate="loc-hours-3">Sunday: Closed</span>
             </p>
 
             <br>
             <p>
-                <strong>MAP:</strong>
+                <strong data-translate="loc-map-label">MAP:</strong>
             </p>
 
-            <!-- EMBED GOOGLE MAPS -->
             <div style="margin-top: 1rem;">
                 <iframe
                     src="https://maps.google.com/maps?q=JALAN%20IMAM%20BONJOL%20NO%2066,%20Denpasar,%20Bali&t=&z=15&ie=UTF8&iwloc=&output=embed"
@@ -67,12 +74,65 @@
             </div>
 
             <p style="margin-top: 1rem; font-size: 0.85rem;">
-                <a href="https://maps.app.goo.gl/HcDGaUPfmi4o7LQH9" target="_blank" rel="noopener noreferrer">OPEN IN
-                    GOOGLE MAPS APP</a>
+                <a href="https://maps.app.goo.gl/HcDGaUPfmi4o7LQH9" target="_blank" rel="noopener noreferrer"
+                    data-translate="loc-map-btn">OPEN IN GOOGLE MAPS APP</a>
             </p>
         </main>
 
     </div>
+
+    <script>
+        const translations = {
+            en: {
+                "desc": "A SERIES OF INTERCONNECTED CUSTOM PACKAGING DESIGNS, CURATED FOR YOUR BRAND.",
+                "menu-about": "ABOUT",
+                "menu-catalog": "CATALOG",
+                "menu-contact": "CONTACT",
+                "menu-location": "LOCATION",
+                "loc-title": "OUR LOCATION",
+                "loc-desc": "Want to see our premium packaging samples in person? Visit our workshop at the address below.",
+                "loc-address-label": "ADDRESS:",
+                "loc-hours-label": "OPERATIONAL HOURS:",
+                "loc-hours-1": "Monday - Friday: 09.00 - 17.00",
+                "loc-hours-2": "Saturday: 09.00 - 14.00",
+                "loc-hours-3": "Sunday: Closed",
+                "loc-map-label": "MAP:",
+                "loc-map-btn": "OPEN IN GOOGLE MAPS APP"
+            },
+            id: {
+                "desc": "SERI DESAIN KEMASAN KUSTOM YANG SALING TERHUBUNG, DIKURASI KHUSUS UNTUK BRAND ANDA.",
+                "menu-about": "TENTANG KAMI",
+                "menu-catalog": "KATALOG",
+                "menu-contact": "KONTAK",
+                "menu-location": "LOKASI",
+                "loc-title": "LOKASI KAMI",
+                "loc-desc": "Ingin melihat sampel kemasan premium kami secara langsung? Kunjungi workshop kami di alamat di bawah ini.",
+                "loc-address-label": "ALAMAT:",
+                "loc-hours-label": "JAM OPERASIONAL:",
+                "loc-hours-1": "Senin - Jumat: 09.00 - 17.00",
+                "loc-hours-2": "Sabtu: 09.00 - 14.00",
+                "loc-hours-3": "Minggu: Tutup",
+                "loc-map-label": "PETA:",
+                "loc-map-btn": "BUKA DI APLIKASI GOOGLE MAPS"
+            }
+        };
+
+        function changeLanguage(lang) {
+            localStorage.setItem('selected-lang', lang);
+            document.querySelectorAll('[data-translate]').forEach(el => {
+                const key = el.getAttribute('data-translate');
+                if (translations[lang][key]) {
+                    el.innerText = translations[lang][key];
+                }
+            });
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('selected-lang') || 'en';
+            document.getElementById('lang-switch').value = savedLang;
+            changeLanguage(savedLang);
+        });
+    </script>
 </body>
 
 </html>

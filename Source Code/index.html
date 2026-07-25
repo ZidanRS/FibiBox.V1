@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" id="html-root">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fibibox | Catalog</title>
+    <title id="page-title">Fibibox | Catalog</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro:wght@400;700&display=swap" rel="stylesheet">
 </head>
@@ -16,17 +16,25 @@
         <aside class="sidebar-wrapper">
             <div class="sidebar-sticky">
                 <img src="img/logo.png" alt="Logo Fibibox" class="site-logo">
-                <p class="site-description">
+                <p class="site-description" data-translate="desc">
                     A SERIES OF INTERCONNECTED CUSTOM PACKAGING DESIGNS, CURATED FOR YOUR BRAND.
                 </p>
                 <nav class="site-nav">
                     <ul>
-                        <li><a href="about.html">ABOUT</a></li>
-                        <li><a href="index.html" class="active">CATALOG</a></li>
-                        <li><a href="contact.html">CONTACT</a></li>
-                        <li><a href="location.html">LOCATION</a></li>
+                        <li><a href="about.html" data-translate="menu-about">ABOUT</a></li>
+                        <li><a href="index.html" class="active" data-translate="menu-catalog">CATALOG</a></li>
+                        <li><a href="contact.html" data-translate="menu-contact">CONTACT</a></li>
+                        <li><a href="location.html" data-translate="menu-location">LOCATION</a></li>
                     </ul>
                 </nav>
+
+                <!-- DROPDOWN PILIHAN BAHASA -->
+                <div class="language-selector">
+                    <select id="lang-switch" onchange="changeLanguage(this.value)">
+                        <option value="en">ENGLISH</option>
+                        <option value="id">INDONESIA</option>
+                    </select>
+                </div>
             </div>
         </aside>
 
@@ -34,55 +42,116 @@
         <main class="gallery-grid">
             <figure class="gallery-item">
                 <img src="img/1.png" alt="Premium Green Drawer Box">
-                <figcaption>GREEN MULTI-DRAWER BOX</figcaption>
+                <figcaption data-translate="item-1">GREEN MULTI-DRAWER BOX</figcaption>
             </figure>
             <figure class="gallery-item">
                 <img src="img/2.png" alt="Delectatio Oval Packaging">
-                <figcaption>DELECTATIO OVAL JAR PACKAGING</figcaption>
+                <figcaption data-translate="item-2">DELECTATIO OVAL JAR PACKAGING</figcaption>
             </figure>
             <figure class="gallery-item">
                 <img src="img/3.png" alt="Red Label Custom Box">
-                <figcaption>RED LABEL CUSTOM HARDBOX</figcaption>
+                <figcaption data-translate="item-3">RED LABEL CUSTOM HARDBOX</figcaption>
             </figure>
             <figure class="gallery-item">
                 <img src="img/4.png" alt="Chasn Matcha PR Set">
-                <figcaption>CHASN MATCHA PR PACKAGE SET</figcaption>
+                <figcaption data-translate="item-4">CHASN MATCHA PR PACKAGE SET</figcaption>
             </figure>
             <figure class="gallery-item">
                 <img src="img/5.png" alt="Frollen Artisan Boxes">
-                <figcaption>FROLLEN ARTISAN COLORFUL BOXES</figcaption>
+                <figcaption data-translate="item-5">FROLLEN ARTISAN COLORFUL BOXES</figcaption>
             </figure>
             <figure class="gallery-item">
                 <img src="img/6.png" alt="Kulture Manifest Box">
-                <figcaption>KULTURE MANIFEST PRINTED BOX</figcaption>
+                <figcaption data-translate="item-6">KULTURE MANIFEST PRINTED BOX</figcaption>
             </figure>
             <figure class="gallery-item">
                 <img src="img/7.png" alt="BCA Prioritas Be The Light Box">
-                <figcaption>BCA PRIORITAS "BE THE LIGHT" BOX</figcaption>
+                <figcaption data-translate="item-7">BCA PRIORITAS "BE THE LIGHT" BOX</figcaption>
             </figure>
             <figure class="gallery-item">
                 <img src="img/8.png" alt="Festive Ribbon Gift Boxes">
-                <figcaption>FESTIVE RED & GREEN RIBBON BOXES</figcaption>
+                <figcaption data-translate="item-8">FESTIVE RED & GREEN RIBBON BOXES</figcaption>
             </figure>
             <figure class="gallery-item">
                 <img src="img/9.png" alt="Datu Drawer Box">
-                <figcaption>DATU BLACK TEXTURED DRAWER BOX</figcaption>
+                <figcaption data-translate="item-9">DATU BLACK TEXTURED DRAWER BOX</figcaption>
             </figure>
             <figure class="gallery-item">
                 <img src="img/10.png" alt="Elegant Cream Ribbon Box">
-                <figcaption>ELEGANT CREAM BOX WITH RIBBON</figcaption>
+                <figcaption data-translate="item-10">ELEGANT CREAM BOX WITH RIBBON</figcaption>
             </figure>
             <figure class="gallery-item">
                 <img src="img/11.png" alt="Brown Premium Box">
-                <figcaption>BROWN ELEGANT PACKAGING</figcaption>
+                <figcaption data-translate="item-11">BROWN ELEGANT PACKAGING</figcaption>
             </figure>
             <figure class="gallery-item">
                 <img src="img/12.png" alt="Tall White Custom Box">
-                <figcaption>TALL WHITE CUSTOM BOX</figcaption>
+                <figcaption data-translate="item-12">TALL WHITE CUSTOM BOX</figcaption>
             </figure>
         </main>
 
     </div>
+
+    <!-- SCRIPT SEDERHANA UNTUK GANTI BAHASA -->
+    <script>
+        const translations = {
+            en: {
+                "desc": "A SERIES OF INTERCONNECTED CUSTOM PACKAGING DESIGNS, CURATED FOR YOUR BRAND.",
+                "menu-about": "ABOUT",
+                "menu-catalog": "CATALOG",
+                "menu-contact": "CONTACT",
+                "menu-location": "LOCATION",
+                "item-1": "GREEN MULTI-DRAWER BOX",
+                "item-2": "DELECTATIO OVAL JAR PACKAGING",
+                "item-3": "RED LABEL CUSTOM HARDBOX",
+                "item-4": "CHASN MATCHA PR PACKAGE SET",
+                "item-5": "FROLLEN ARTISAN COLORFUL BOXES",
+                "item-6": "KULTURE MANIFEST PRINTED BOX",
+                "item-7": "BCA PRIORITAS \"BE THE LIGHT\" BOX",
+                "item-8": "FESTIVE RED & GREEN RIBBON BOXES",
+                "item-9": "DATU BLACK TEXTURED DRAWER BOX",
+                "item-10": "ELEGANT CREAM BOX WITH RIBBON",
+                "item-11": "BROWN ELEGANT PACKAGING",
+                "item-12": "TALL WHITE CUSTOM BOX"
+            },
+            id: {
+                "desc": "SERI DESAIN KEMASAN KUSTOM YANG SALING TERHUBUNG, DIKURASI KHUSUS UNTUK BRAND ANDA.",
+                "menu-about": "TENTANG KAMI",
+                "menu-catalog": "KATALOG",
+                "menu-contact": "KONTAK",
+                "menu-location": "LOKASI",
+                "item-1": "KOTAK LACI MULTI HIJAU",
+                "item-2": "KEMASAN TOPLES OVAL DELECTATIO",
+                "item-3": "HARDBOX KUSTOM RED LABEL",
+                "item-4": "SET PAKET PR MATCHA CHASN",
+                "item-5": "KOTAK WARNA-WARNI ARTISAN FROLLEN",
+                "item-6": "KOTAK CETAK KULTURE MANIFEST",
+                "item-7": "KOTAK BCA PRIORITAS \"BE THE LIGHT\"",
+                "item-8": "KOTAK KADO PITA MERAH & HIJAU",
+                "item-9": "KOTAK LACI TEKSTUR HITAM DATU",
+                "item-10": "KOTAK KREM ELEGAN DENGAN PITA",
+                "item-11": "KEMASAN PREMIUM COKLAT",
+                "item-12": "KOTAK PUTIH TINGGI KUSTOM"
+            }
+        };
+
+        function changeLanguage(lang) {
+            localStorage.setItem('selected-lang', lang);
+            document.querySelectorAll('[data-translate]').forEach(el => {
+                const key = el.getAttribute('data-translate');
+                if (translations[lang][key]) {
+                    el.innerText = translations[lang][key];
+                }
+            });
+        }
+
+        // Memuat bahasa yang tersimpan saat halaman dibuka
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('selected-lang') || 'en';
+            document.getElementById('lang-switch').value = savedLang;
+            changeLanguage(savedLang);
+        });
+    </script>
 </body>
 
 </html>
