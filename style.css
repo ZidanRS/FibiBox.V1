@@ -67,7 +67,6 @@ strong {
     gap: 2.5rem;
     position: sticky;
     top: 4rem;
-    /* Memberi ruang agar dropdown bahasa bisa di-push ke bawah */
     height: calc(100vh - 8rem);
 }
 
@@ -111,7 +110,6 @@ strong {
    ========================================================================== */
 .language-selector {
     margin-top: auto;
-    /* Mendorong dropdown ke bagian paling bawah sidebar */
     padding-top: 2rem;
     border-top: 1px solid rgba(248, 249, 250, 0.2);
 }
